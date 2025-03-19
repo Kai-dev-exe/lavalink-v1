@@ -15,7 +15,7 @@ lavalink:
         frameBufferDurationMs: 5000
         gcWarnings: true
         opusEncodingQuality: 10
-        password: yourpasswordhere
+        password: "${LAVALINK_PASSWORD}"
         playerUpdateInterval: 5
         resamplingQuality: HIGH
         soundcloudSearchEnabled: true
@@ -32,11 +32,12 @@ lavalink:
         useSeekGhosting: true
         youtubePlaylistLoadLimit: 6
         youtubeSearchEnabled: true
+
 lavasrc:
     applemusic:
         albumLoadLimit: 6
         countryCode: US
-        mediaAPIToken: REDACTED
+        mediaAPIToken: "${APPLE_MUSIC_TOKEN}"
         playlistLoadLimit: 6
     flowerytts:
         audioFormat: mp3
@@ -56,12 +57,13 @@ lavasrc:
         yandexmusic: false
     spotify:
         albumLoadLimit: 6
-        clientId: REDACTED
-        clientSecret: REDACTED
+        clientId: "${SPOTIFY_CLIENT_ID}"
+        clientSecret: "${SPOTIFY_CLIENT_SECRET}"
         countryCode: US
         playlistLoadLimit: 6
     yandexmusic:
-        accessToken: REDACTED
+        accessToken: "${YANDEX_ACCESS_TOKEN}"
+
 logging:
     file:
         path: ./logs/
@@ -79,20 +81,24 @@ logging:
         includePayload: true
         includeQueryString: true
         maxPayloadLength: 10000
+
 metrics:
     prometheus:
         enabled: false
         endpoint: /metrics
+
 plugins:
     youtube:
         enabled: true
         oauth:
             enabled: true
-            #refreshToken: 1//0gfv8Ao_D_lXgCgYIARAAGBASNwF-L9Ir_zz1urGBaxUmM820tUjU8lygRGckoGzd5Oh5yM6kNVUVAuQSc_Ht8T-5AFwLUB9naLY
+            #refreshToken: "${YOUTUBE_REFRESH_TOKEN}"
             #skipInitialization: true
+
 sentry:
     dsn: ""
     environment: ""
+
 server:
     address: 0.0.0.0
     http2:
